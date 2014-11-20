@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Thibault Couraud']
   spec.email         = ['contact@sweetdub.com']
   spec.summary       = %q{Leboncoin.fr Ruby API wrapper.}
-  spec.description   = %q{Manage & search classified ads, create users accounts.}
+  spec.description   = %q{Manage and search classified ads, create users accounts.}
   spec.homepage      = 'https://github.com/sweetdub/lbc_api'
   spec.license       = 'MIT'
 
