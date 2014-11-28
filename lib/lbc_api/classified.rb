@@ -10,7 +10,7 @@ module LbcApi
               f.file_uploads[i].file_name = img
               f['extra_images'] = 1
             end.submit
-            # Agent.mecha.get(page.search('.photo.waiting').at('span')['title'])
+            Agent.mecha.get(page.search('.photo.waiting').at('span')['title'])
           end
         end
         page = page.form_with(name: 'formular') do |f|
@@ -26,7 +26,7 @@ module LbcApi
 
       def delete(id, password)
         page = Agent.mecha.get("http://www2.leboncoin.fr/ai?id=#{id}&cmd=delete")
-        page = page.forms[current_page.forms.count - 2].submit
+        page = page.forms[page.forms.count - 2].submit
         page.forms.last do |f|
           f['password'] = password
         end.submit
