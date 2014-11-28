@@ -6,12 +6,11 @@ module LbcApi
         data = Sanitize.params(data).merge({'email' => email})
         if files && files.count
           files.each_with_index do |img, i|
-            form = page.form_with(name: 'formular') do |f|
+            page = page.form_with(name: 'formular') do |f|
               f.file_uploads[i].file_name = img
-            end
-            if defined?(files[i + 1])
-              page = form.submit
-            end
+              f['extra_images'] = 1
+            end.submit
+            # Agent.mecha.get(page.search('.photo.waiting').at('span')['title'])
           end
         end
         page = page.form_with(name: 'formular') do |f|
